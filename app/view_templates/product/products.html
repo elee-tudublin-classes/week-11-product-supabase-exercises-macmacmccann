@@ -52,10 +52,20 @@
                 <form class="ms-2 me-auto" hx-post="/product/" hx-target="#productList" hx-swap="beforeend">
                     <fieldset>
                         <legend>Add a new product</legend>
+
+
+
                         <div class="mb-3">
                             <label for="category_id" class="form-label">Category</label>
-                            <input type="text" class="form-control" id="category_id" name="category_id" required>
+                            <select class="form-select" class="form-control" id="category_id" name="category_id" required>
+                            <option value ="" disabled selected>Select a category</option>
+
+                            {% for category in categories %}
+                            <option value=" {{ category.id}}">{{ category.name }}</option>
+                            {% endfor %}
                         </div>
+
+
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control" id="title" name="title" required>

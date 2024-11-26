@@ -28,7 +28,7 @@ def dataGetProduct(id):
     # select * from product where id = id 
     response = (
         supabase.table("product")
-        .select("*")
+        .select("category:category_id(name),id, title, description, stock, price, thumbnail, category_id ")
         .eq("id", id)
         .execute()
     )
